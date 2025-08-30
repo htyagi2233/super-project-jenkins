@@ -137,7 +137,8 @@ sonarqube-ansible/
 ## 📁 3. inventory
 ```
 [sonar]
-192.168.192.135 ansible_user=root ansible_ssh_private_key_file=~/.ssh/id_rsa
+192.168.192.135 ansible_user=root ansible_ssh_private_key_file=~/.ssh/id_rsa ansible_python_interpreter=/usr/bin/python3.12
+
 ```
 - 🔸 192.168.1.100 → SonarQube server IP
 - 🔸 ansible_user → SSH user
