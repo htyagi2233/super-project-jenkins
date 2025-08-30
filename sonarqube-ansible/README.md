@@ -197,6 +197,8 @@ sonarqube-ansible/
 ## Sonarqube Console Login
 NOTE: Make sure you add the password of each user like ec2, sonarqube and root
                     using the sudo passwd username
+					http://<server-ip>:9000<img width="284" height="20" alt="image" src="https://github.com/user-attachments/assets/def1e749-6e2f-4aba-879b-6bee33efb076" />
+
 Note 2: Port number of Sonarqube server is 9000
 Note 3: Username:admin  Password:admin<img width="730" height="110" alt="image" src="https://github.com/user-attachments/assets/2b8c35ee-59a0-4a76-a08c-189353daac5d" />
 
