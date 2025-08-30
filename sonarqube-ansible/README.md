@@ -1,23 +1,19 @@
-#**🎯 Objective:**
-```
-##✅ Jenkins pipeline →
-##✅ Ansible playbook trigger →
-##✅ Remote server पर SonarQube install हो via Ansible
-```
+**#🎯 Objective:**
+-✅ Jenkins pipeline →
+-✅ Ansible playbook trigger →
+-✅ Remote server पर SonarQube install हो via Ansible
 
 
-**
-🧱 Pre Requirements:**
-```
-Jenkins server (Linux-based preferred)
-Ansible installed on Jenkins server
-GitHub repository में Ansible playbook (for SonarQube)
-SSH access from Jenkins to target (SonarQube) server
-Jenkins में SSH credentials configured
-Jenkins job → Pipeline (Scripted or Declarative)
-```
+##🧱 Pre Requirements:
+-Jenkins server (Linux-based preferred)
+-Ansible installed on Jenkins server
+-GitHub repository में Ansible playbook (for SonarQube)
+-SSH access from Jenkins to target (SonarQube) server
+-Jenkins में SSH credentials configured
+-Jenkins job → Pipeline (Scripted or Declarative)
 
-**Jenkins Pipeline**
+
+##Jenkins Pipeline
 ```
 pipeline {
     agent any
@@ -55,7 +51,7 @@ sonarqube-ansible/
 
 
 
-**📁 2. install-sonarqube.yml (Ansible Playbook)**
+##📁 2. install-sonarqube.yml (Ansible Playbook)**
 ```
 ---
 - name: Install SonarQube on Ubuntu
@@ -136,7 +132,7 @@ sonarqube-ansible/
 
 ```
 
-**📁 3. inventory**
+##📁 3. inventory**
 ```
 [sonar]
 192.168.192.135 ansible_user=root ansible_ssh_private_key_file=~/.ssh/id_rsa
