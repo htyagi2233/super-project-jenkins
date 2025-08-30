@@ -1,0 +1,2 @@
+[sonar]
+192.168.192.135 ansible_user=root ansible_ssh_private_key_file=~/.ssh/id_rsa
