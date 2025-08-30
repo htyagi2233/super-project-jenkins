@@ -136,7 +136,9 @@ sonarqube-ansible/
 ```
 [sonar]
 192.168.192.135 ansible_user=root ansible_ssh_private_key_file=~/.ssh/id_rsa
-
 ```
+- 🔸 192.168.1.100 → SonarQube server IP
+- 🔸 ansible_user → SSH user
+- 🔸 ansible_ssh_private_key_file → Jenkins/Ansible SSH key
 
 
