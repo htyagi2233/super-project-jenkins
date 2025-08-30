@@ -21,12 +21,12 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/your-user/sonarqube-ansible.git'
+                git url: 'checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/htyagi2233/super-project-jenkins.git']])'
             }
         }
         stage('Run Ansible') {
             steps {
-                sshagent(['your-ssh-credential-id']) {
+                sshagent(['jenkins-ansible-key']) {
                     sh '''
                         ansible-playbook -i inventory install-sonarqube.yml
                     '''
