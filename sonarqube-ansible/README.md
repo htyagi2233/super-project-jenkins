@@ -8,6 +8,7 @@
 - Jenkins server (Linux-based preferred)
 - Ansible installed on Jenkins server
 - GitHub repository → Ansible playbook (for SonarQube)
+- SSH Agent Plugin install on jenkins
 - SSH access from Jenkins to target (SonarQube) server
 - Jenkins → SSH credentials configured
 - Jenkins job → Pipeline (Scripted or Declarative)
