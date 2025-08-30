@@ -1,6 +1,6 @@
 ---
 - name: Install SonarQube on Ubuntu
-  hosts: sonarqube
+  hosts: sonar
   become: true
 
   vars:
