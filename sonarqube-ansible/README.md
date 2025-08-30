@@ -1,7 +1,7 @@
-**🎯 Objective:**
-✅ Jenkins pipeline →
-✅ Ansible playbook trigger →
-✅ Remote server पर SonarQube install हो via Ansible
+#**🎯 Objective:**
+##✅ Jenkins pipeline →
+##✅ Ansible playbook trigger →
+##✅ Remote server पर SonarQube install हो via Ansible
 
 
 **
