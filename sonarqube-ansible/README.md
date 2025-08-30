@@ -28,6 +28,7 @@ pipeline {
             steps {
                 sshagent(['jenkins-ansible-key']) {
                     sh '''
+                        cd sonarqube-ansible
                         ansible-playbook -i inventory install-sonarqube.yml
                     '''
                 }
