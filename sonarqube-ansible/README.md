@@ -14,6 +14,57 @@
 - Jenkins job → Pipeline (Scripted or Declarative)
 
 
+# Lab Setup: Jenkins + Ansible + Passwordless SSH
+
+## Assumptions:
+	- Jenkins and Ansible are installed on 192.168.192.130.
+	- Remote server for SonarQube is 192.168.192.135.
+	- Jenkins user’s home directory is /var/lib/jenkins.
+	- You want to connect to the remote server as root.
+	- Jenkins user has sudo rights (optional if not connecting as root).
+
+## Step 1: Generate SSH Key for Jenkins User
+Generate an SSH key for Jenkins user so it can connect to the remote server without a password.
+```
+sudo -u jenkins ssh-keygen -t rsa -b 4096 -N "" -f /var/lib/jenkins/.ssh/id_rsa
+```
+
+	• -N "" means no passphrase.
+	• Private key saved as /var/lib/jenkins/.ssh/id_rsa
+	• Public key saved as /var/lib/jenkins/.ssh/id_rsa.pub
+
+## Step 2: Copy Jenkins Public Key to Remote Server’s root Authorized Keys
+Copy Jenkins public key into the remote server’s root user authorized keys, so Jenkins can login passwordlessly:
+On Jenkins server:
+```
+sudo cat /var/lib/jenkins/.ssh/id_rsa.pub
+```
+
+Copy the output, then on the remote server (192.168.192.135):
+```
+ssh root@192.168.192.135
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+echo "paste the Jenkins public key here" >> ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+```
+
+## Step 3: Add Remote Server SSH Key to Jenkins Known Hosts
+To avoid SSH host verification errors:
+```
+sudo -u jenkins ssh-keyscan -H 192.168.192.135 >> /var/lib/jenkins/.ssh/known_hosts
+```
+
+## Step 4: Fix SSH Permissions for Jenkins User
+Set correct permissions on Jenkins user’s .ssh folder and keys:
+```
+sudo chown -R jenkins:jenkins /var/lib/jenkins/.ssh
+sudo chmod 700 /var/lib/jenkins/.ssh
+sudo chmod 600 /var/lib/jenkins/.ssh/id_rsa
+sudo chmod 644 /var/lib/jenkins/.ssh/id_rsa.pub
+sudo chmod 644 /var/lib/jenkins/.ssh/known_hosts
+```
+
 ## Jenkins Pipeline
 ```
 pipeline {
