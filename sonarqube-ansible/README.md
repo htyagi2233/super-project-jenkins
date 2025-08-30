@@ -5,12 +5,12 @@
 
 
 ## 🧱 Pre Requirements:
--Jenkins server (Linux-based preferred)
--Ansible installed on Jenkins server
--GitHub repository में Ansible playbook (for SonarQube)
--SSH access from Jenkins to target (SonarQube) server
--Jenkins में SSH credentials configured
--Jenkins job → Pipeline (Scripted or Declarative)
+- Jenkins server (Linux-based preferred)
+- Ansible installed on Jenkins server
+- GitHub repository में Ansible playbook (for SonarQube)
+- SSH access from Jenkins to target (SonarQube) server
+- Jenkins में SSH credentials configured
+- Jenkins job → Pipeline (Scripted or Declarative)
 
 
 ## Jenkins Pipeline
