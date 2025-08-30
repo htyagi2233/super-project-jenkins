@@ -1,15 +1,15 @@
 # 🎯 Objective:
 - ✅ Jenkins pipeline →
 - ✅ Ansible playbook trigger →
-- ✅ Remote server पर SonarQube install हो via Ansible
+- ✅  SonarQube install via Ansible on Remote server (Sonar)
 
 
 ## 🧱 Pre Requirements:
 - Jenkins server (Linux-based preferred)
 - Ansible installed on Jenkins server
-- GitHub repository में Ansible playbook (for SonarQube)
+- GitHub repository → Ansible playbook (for SonarQube)
 - SSH access from Jenkins to target (SonarQube) server
-- Jenkins में SSH credentials configured
+- Jenkins → SSH credentials configured
 - Jenkins job → Pipeline (Scripted or Declarative)
 
 
