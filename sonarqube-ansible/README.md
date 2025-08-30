@@ -14,9 +14,7 @@
 - Jenkins job → Pipeline (Scripted or Declarative)
 
 
-# Lab Setup: Jenkins + Ansible + Passwordless SSH
-
-## Assumptions:
+## Setup: Jenkins + Ansible + Passwordless SSH
 	- Jenkins and Ansible are installed on 192.168.192.130.
 	- Remote server for SonarQube is 192.168.192.135.
 	- Jenkins user’s home directory is /var/lib/jenkins.
