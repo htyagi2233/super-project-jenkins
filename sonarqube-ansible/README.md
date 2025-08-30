@@ -1,4 +1,4 @@
-<img width="178" height="20" alt="image" src="https://github.com/user-attachments/assets/9369ea98-6bd0-48d0-8116-3c9330f8e3f2" /><img width="178" height="20" alt="image" src="https://github.com/user-attachments/assets/62a75e9a-50f1-4429-a940-5b95a5bc9093" />**Objective **
+**🎯 Objective:**
 ✅ Jenkins pipeline →
 ✅ Ansible playbook trigger →
 ✅ Remote server पर SonarQube install हो via Ansible
