@@ -189,8 +189,8 @@ sonarqube-ansible/
 [all:vars]
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 
-[test]
-test ansible_ssh_host=192.168.192.135 ansible_ssh_port=22 ansible_user=root
+[sonar]
+sonar ansible_ssh_host=192.168.192.135 ansible_ssh_port=22 ansible_user=root
 
 ```
 - 🔸 192.168.1.100 → SonarQube server IP
