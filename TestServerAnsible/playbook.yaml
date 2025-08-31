@@ -2,11 +2,13 @@
 - name: Install Docker, Git, and Maven on Ubuntu
   hosts: test
   become: true
-
   tasks:
-    - name: Install Docker
+    - name: Install required packages
       apt:
-        name: docker-ce
+        name:
+          - docker.io
+          - git
+          - maven
         state: present
         update_cache: yes
 
@@ -16,12 +18,4 @@
         enabled: yes
         state: started
 
-    - name: Install Git
-      apt:
-        name: git
-        state: present
 
-    - name: Install Maven
-      apt:
-        name: maven
-        state: present
