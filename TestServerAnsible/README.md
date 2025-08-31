@@ -1,5 +1,6 @@
 # ✅ LAB OVERVIEW
-- Component	Description
+complete lab setup to install Docker, Git, and Maven on a test server using Jenkins Pipeline + Ansible.
+**Component	Description**
 - Server 1	Jenkins + Ansible control node
 - Server 2	Target/Test node (where tools are installed)
 - Jenkins Job	Pipeline triggering Ansible playbook
