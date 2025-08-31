@@ -67,25 +67,26 @@ sudo chmod 644 /var/lib/jenkins/.ssh/known_hosts
 ```
 pipeline {
     agent any
-
+    environment{
+        privatekey = credentials('jenkins-ansible-key')
+    }
     stages {
         stage('Checkout') {
             steps {
-                git url: 'checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/htyagi2233/super-project-jenkins.git']])'
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/htyagi2233/super-project-jenkins.git']])
             }
         }
-        stage('Run Ansible') {
+        stage('SonarQube installation') {
             steps {
-                sshagent(['jenkins-ansible-key']) {
-                    sh '''
-                        cd sonarqube-ansible
-                        ansible-playbook -i inventory install-sonarqube.yml
-                    '''
+                sh '''
+                cd sonarqube-ansible
+                ansible-playbook -i inventory --private-key ${privatekey} playbook.yaml
+                '''
                 }
-            }
         }
     }
 }
+
 
 ```
 
@@ -185,8 +186,11 @@ sonarqube-ansible/
 
 ## 📁 3. inventory
 ```
-[sonar]
-192.168.192.135 ansible_user=root ansible_ssh_private_key_file=~/.ssh/id_rsa ansible_python_interpreter=/usr/bin/python3.12
+[all:vars]
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+[test]
+test ansible_ssh_host=192.168.192.135 ansible_ssh_port=22 ansible_user=root
 
 ```
 - 🔸 192.168.1.100 → SonarQube server IP
