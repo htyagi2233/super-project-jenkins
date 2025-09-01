@@ -31,7 +31,7 @@ k8s-worker   Ready    <none>          3d2h   v1.33.4   192.168.192.134   <none>
 - Use this pattern:
 - http://<Node-IP>:<NodePort>
 - http://<k8s-server-IP>:30080/addressbook-2.0/
-- <http://192.168.192.134:30080/addressbook-2.0/><img width="514" height="20" alt="image" src="https://github.com/user-attachments/assets/9746ef42-14bd-46bb-bdca-915da39fe784" />
+- http://192.168.192.134:30080/addressbook-2.0/
 
 
 
