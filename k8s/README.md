@@ -1,52 +1,34 @@
-# AddressBook 
-![ScreenRecording2024-03-08at1 00 11PM-ezgif com-video-to-gif-converter](https://github.com/kanchan78/AddressBook/assets/65346420/46dda36c-e225-43e7-b8e3-b7cce21cdfc2)
-
-
-
-This is a simple CRUD application which helps you to manage your address book.
-
-## Description
-
-AddressBook is a Web Development project for practice purposes. It's a little maven webapp where you can easily create, search, update and delete contacts.
-
-#### Unique features :
-* Multiple records can be added through CSV file. [sample upload file](https://docs.google.com/spreadsheets/d/1iFew9bbMiBQdCDlhH689cOFc6vWG5z-IrtaZyyGamWU/edit?usp=sharing)
-* Sort the records by any column.
-* Search record.
-
-It has been made with:
-* Java, using Java Servlets as controllers, JavaBeans as model and JavaServer Pages as view (MVC pattern)
-* MySQL
-* HTML5 & CSS3
-* Bootstrap in order to make it mobile-first and responsive
-* JavaScript, jQuery and AJAX
-
-## Getting Started
-
-### Dependencies
-
-* Maven
-* JDK 1.8
-* Tomcat 8
-* Mysql 
-
-### Deployment with Maven
-
-AddressBook can be deployed with Maven or manually with the .war file.
-
-* Clone the repository
-* Move in /AddressBook dir and run below command
-* Visit localhost and enjoy AddressBook!
-  http://localhost:8080/addressBook-2.0/
-* Refer to AddressBook.sql for mysql script
+							# Testing 
+	## Ø 1. Verify on k8s Server
+	
 ```
-git clone https://github.com/kanchan78/AddressBook.git
-cd AddressBook
-mvn clean tomcat7:run-war
+kubectl get all
+NAME                                          READY   STATUS    RESTARTS   AGE
+pod/project-k8s-deployment-547bd7fd8f-4mb7t   1/1     Running   0          5m31s
+pod/project-k8s-deployment-547bd7fd8f-59qg8   1/1     Running   0          5m31s
+pod/project-k8s-deployment-547bd7fd8f-jlnfv   1/1     Running   0          5m31s
+
+NAME                  TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+service/kubernetes    ClusterIP   10.96.0.1        <none>        443/TCP        3d3h
+service/project-k8s   NodePort    10.105.204.228   <none>        80:30080/TCP   5m31s
+
+NAME                                     READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/project-k8s-deployment   3/3     3            3           5m31s
+
+NAME                                                DESIRED   CURRENT   READY   AGE
+replicaset.apps/project-k8s-deployment-547bd7fd8f   3         3         3       5m31s
+
+
+
+root@k8s:~# kubectl get nodes -o wide
+NAME         STATUS   ROLES           AGE    VERSION   INTERNAL-IP       EXTERNAL-IP         
+k8s          Ready    control-plane   3d3h   v1.33.4   192.168.192.133   <none>     
+k8s-worker   Ready    <none>          3d2h   v1.33.4   192.168.192.134   <none>       
 ```
 
-### Contributing
-Contributions are welcome! Fork the repository and create a pull request with your changes.
 
-* Made with ❤ 
-* Don't forget to star it 🌟
+## 🌐 2. Access the Application
+Use this pattern:
+http://<Node-IP>:<NodePort>
+http://<k8s-server-IP>:30080/addressbook-2.0/
+http://192.168.192.134:30080/addressbook-2.0/<img width="962" height="784" alt="image" src="https://github.com/user-attachments/assets/9be2e226-15c0-4302-a533-e05f18fba5fe" />
