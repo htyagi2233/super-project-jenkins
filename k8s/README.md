@@ -1,5 +1,5 @@
 					# Testing 
-## Ø 1. Verify on k8s Server
+## 1. Verify on k8s Server
 	
 ```
 kubectl get all
@@ -27,7 +27,7 @@ k8s-worker   Ready    <none>          3d2h   v1.33.4   192.168.192.134   <none>
 ```
 
 
-## 🌐 2. Access the Application
+## 2. Access the Application
 Use this pattern:
 http://<Node-IP>:<NodePort>
 http://<k8s-server-IP>:30080/addressbook-2.0/
