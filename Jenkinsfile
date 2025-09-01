@@ -83,4 +83,16 @@ pipeline{
             }
         }
     }
+    post {
+        always {
+            sh 'kubectl get pods'
+        }
+        success {
+            sh 'kubectl rollout status deployment/super-project'
+        }
+        failure {
+            sh 'kubectl describe pod -l app=super-project'
+        }
+    }
+
 }
