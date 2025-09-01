@@ -1,4 +1,4 @@
-					# Testing 
+# Testing 
 ## 1. Verify on k8s Server
 	
 ```
@@ -31,5 +31,5 @@ k8s-worker   Ready    <none>          3d2h   v1.33.4   192.168.192.134   <none>
 Use this pattern:
 http://<Node-IP>:<NodePort>
 http://<k8s-server-IP>:30080/addressbook-2.0/
-[[http://192.168.192.134:30080/addressbook-2.0/<img width="962" height="784" alt="image" src="https://github.com/user-attachments/assets/9be2e226-15c0-4302-a533-e05f18fba5fe" />](http://192.168.192.134:30080/addressbook-2.0/)![Uploading image.png…]()](http://192.168.192.134:30080/addressbook-2.0/)
+
 
