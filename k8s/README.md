@@ -1,5 +1,5 @@
-							# Testing 
-	## Ø 1. Verify on k8s Server
+					# Testing 
+## Ø 1. Verify on k8s Server
 	
 ```
 kubectl get all
