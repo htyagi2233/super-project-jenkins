@@ -2,6 +2,7 @@ pipeline{
     agent any
     environment{
         cred = credentials('k8s-133')
+        KUBECONFIG = "${WORKSPACE}/kubeconfig"
         DOCKER_IMAGE = 'htyagi2233/superproject-jenkins'
     }
     options {
@@ -64,8 +65,21 @@ pipeline{
                         docker push ${DOCKER_IMAGE}:${BUILD_NUMBER}
                         docker tag ${DOCKER_IMAGE}:${BUILD_NUMBER} ${DOCKER_IMAGE}:latest
                         docker push ${DOCKER_IMAGE}:latest
+                        docker logout
                     '''
                 }
+            }
+        }
+        stage('k8s node check'){
+            steps{
+                withCredentials([file(credentialsId: 'k8s-133', variable: 'KUBECONFIG_FILE_PATH')]) {
+                    sh 'cp "$KUBECONFIG_FILE_PATH" "$KUBECONFIG"'
+                }
+            }
+        }
+        stage('k8s deploy'){
+            steps{
+                sh 'kubectl apply -f k8s/deployment.yaml'
             }
         }
     }
